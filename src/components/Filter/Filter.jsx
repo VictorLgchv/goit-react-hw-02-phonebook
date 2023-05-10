@@ -1,5 +1,6 @@
 import { nanoid } from 'nanoid';
-import {Div} from './Filter.syled'
+import { Div } from './Filter.syled';
+import PropTypes from 'prop-types';
 
 const formId = nanoid();
 
@@ -21,4 +22,9 @@ export const Filter = ({ value, filter }) => {
       <br />
     </Div>
   );
+};
+
+Filter.propTypes = {
+  value: PropTypes.string.isRequired,
+  filter: PropTypes.func.isRequired,
 };

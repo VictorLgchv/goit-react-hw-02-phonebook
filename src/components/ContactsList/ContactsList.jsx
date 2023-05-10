@@ -1,5 +1,5 @@
-import {Ul, Li} from './Contacts.styled'
-
+import { Ul, Li } from './ContactsList.styled';
+import PropTypes from 'prop-types';
 
 export const ContactsList = ({ onFilterName, deleteItem }) => {
   return (
@@ -9,9 +9,16 @@ export const ContactsList = ({ onFilterName, deleteItem }) => {
           <p>
             {name}: {number}
           </p>
-          <button type="button" onClick={() => deleteItem(id)}>delete</button>
+          <button type="button" onClick={() => deleteItem(id)}>
+            delete
+          </button>
         </Li>
       ))}
     </Ul>
   );
+};
+
+ContactsList.propTypes = {
+  onFilterName: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
+  deleteItem: PropTypes.func.isRequired,
 };

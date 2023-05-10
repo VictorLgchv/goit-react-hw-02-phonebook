@@ -13,7 +13,7 @@ export class App extends Component {
 
   formSubmitHandler = data => {
     const isContactExists = this.state.contacts.some(
-      contact => contact.name === data.name
+      contact => contact.name.toLowerCase() === data.name.toLowerCase()
     );
     isContactExists
       ? alert(`${data.name} is already in contacts`)
@@ -51,7 +51,7 @@ export class App extends Component {
         </Section>
         <Section>
           <h2>Contacts</h2>
-          <Filter value={this.filter} filter={this.filterForm} />
+          <Filter value={this.state.filter} filter={this.filterForm} />
           <ContactsList
             onFilterName={onFilterName}
             deleteItem={this.deleteItem}
